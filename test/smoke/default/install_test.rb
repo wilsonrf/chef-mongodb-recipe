@@ -4,6 +4,14 @@
 
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
+describe group 'mongodb' do
+  it { should exist }
+end
+
+describe user 'mongodb' do
+  it { should exist }
+end
+
 describe package 'mongodb-org' do
   it { should be_installed }
 end
@@ -15,4 +23,8 @@ end
 
 describe port(27017) do
   it { should be_listening }
+end
+
+describe directory '/etc/chef/stamps' do
+  it { should exist }
 end

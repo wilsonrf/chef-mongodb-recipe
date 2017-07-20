@@ -21,6 +21,18 @@ apt_package 'mongodb-org' do
   action :install
 end
 
+template '/etc/mongod.conf' do
+  source 'mongod.conf.erb'
+end
+
 service 'mongod' do
   action [:enable, :start]
+end
+
+directory '/etc/chef/stamps' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  recursive true
+  action :create
 end

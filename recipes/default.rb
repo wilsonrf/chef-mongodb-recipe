@@ -9,3 +9,4 @@ apt_update 'daily' do
 end
 
 include_recipe 'mongodb::install'
+include_recipe 'mongodb::create_users'

@@ -1,0 +1,15 @@
+processManagement:
+   fork: true
+security:
+   authorization: <%= node['mongod']['config']['authorization_enabled']%> 
+net:
+   bindIp: <%= node['mongod']['config']['bind_ip'] %>
+   port: <%= node['mongod']['config']['port'] %>
+storage:
+   dbPath: <%= node['mongod']['config']['db_path'] %>
+systemLog:
+   destination: file
+   path: <%= node['mongod']['config']['log_path'] %>
+   logAppend: true
+replication:
+   replSetName: <%= node['mongod']['config']['rel_set_name'] %>
