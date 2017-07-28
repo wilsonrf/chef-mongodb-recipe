@@ -1,7 +1,7 @@
 processManagement:
    fork: true
 security:
-   authorization: <%= node['mongod']['config']['authorization_enabled']%> 
+   authorization: '<%= node['mongod']['config']['authorization_enabled']%>'
 net:
    bindIp: <%= node['mongod']['config']['bind_ip'] %>
    port: <%= node['mongod']['config']['port'] %>

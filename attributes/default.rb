@@ -7,4 +7,4 @@ default['mongod']['config']['log_path'] = '/var/log/mongodb/mongod.log'
 default['mongod']['config']['rel_set_name'] = 'replicaSet0'
 default['mongod']['config']['admin_username'] = 'admin'
 default['mongod']['config']['admin_database'] = 'admin'
-default['mongod']['config']['admin_role'] = ['userAdminAnyDatabase']
+default['mongod']['config']['admin_role'] = ['root']
