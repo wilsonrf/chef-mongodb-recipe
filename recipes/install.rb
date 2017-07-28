@@ -21,9 +21,14 @@ apt_package 'mongodb-org' do
   action :install
 end
 
-template '/etc/mongod.conf' do
-  source 'mongod.conf.erb'
+directory node['mongod']['config']['db_path'] do
+  owner 'mongodb'
+  group 'mongodb'
+  mode '0755'
+  recursive true
+  action :create
 end
+
 
 service 'mongod' do
   action [:enable, :start]

@@ -11,5 +11,3 @@ systemLog:
    destination: file
    path: <%= node['mongod']['config']['log_path'] %>
    logAppend: true
-replication:
-   replSetName: <%= node['mongod']['config']['rel_set_name'] %>
