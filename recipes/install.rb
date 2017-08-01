@@ -29,6 +29,29 @@ directory node['mongod']['config']['db_path'] do
   action :create
 end
 
+directory node['mongod']['config']['etc_path'] do
+  owner 'mongodb'
+  group 'mongodb'
+  mode '0755'
+  recursive true
+  action :create
+end
+
+cookbook_file '/etc/mongodb/keyfile' do
+  source 'keyfile'
+  owner 'mongodb'
+  group 'mongodb'
+  mode '0400'
+  action :create
+end
+
+template '/etc/mongod.conf' do
+  source 'mongod.conf.erb'
+  owner 'mongodb'
+  group 'mongodb'
+  mode '0755'
+  action :create
+end
 
 service 'mongod' do
   action [:enable, :start]

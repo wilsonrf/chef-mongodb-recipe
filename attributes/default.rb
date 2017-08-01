@@ -8,3 +8,5 @@ default['mongod']['config']['rel_set_name'] = 'replicaSet0'
 default['mongod']['config']['admin_username'] = 'admin'
 default['mongod']['config']['admin_database'] = 'admin'
 default['mongod']['config']['admin_role'] = ['root']
+default['mongod']['config']['etc_path'] = '/etc/mongodb'
+default['mongod']['config']['keyfile_path'] = '/etc/mongodb/keyfile'
