@@ -1,14 +1,18 @@
 security:
-   authorization: '<%= node['mongod']['config']['authorization_enabled']%>'
-   keyFile: <%= node['mongod']['config']['keyfile_path']%>
+   authorization: '<%= @authorization %>'
+   <%- if @is_replica %>
+   keyfile: <%= @keyfile %>
+   <%- end %>
 net:
-   bindIp: <%= node['mongod']['config']['bind_ip'] %>
-   port: <%= node['mongod']['config']['port'] %>
+   bindIp: 
+   port: <%= @port %>
 storage:
-   dbPath: <%= node['mongod']['config']['db_path'] %>
+   dbPath: <%= @db_path %>
 systemLog:
    destination: file
-   path: <%= node['mongod']['config']['log_path'] %>
+   path: <%= @log_path %>
    logAppend: true
+<%- if @is_replica %>
 replication:
-    replSetName: <%= node['mongod']['config']['rel_set_name']%>
+    replSetName: <%= @replicaset_name %>
+<%- end %>
