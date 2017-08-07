@@ -1,10 +1,12 @@
 # To learn more about Custom Resources, see https://docs.chef.io/custom_resources.html
 resource_name :mongo_server
-property :mongo_server, String, name_property: true
-property :db_path, String
-property :port, Integer
-property :keyfile, String
-property :is_replicaset, default: false
+property :mongo_server, kind_of: String, name_property: true
+property :db_path, kind_of: String
+property :port, kind_of: Integer
+property :auth, kind_of: [TrueClass, FalseClass]
+property :ssl, kind_of: [TrueClass, FalseClass]
+property :keyfile, kind_of: String
+property :is_replicaset, kind_of: [TrueClass, FalseClass], default: false
 
 action :create do
   apt_repository 'mongodb_xenial' do
